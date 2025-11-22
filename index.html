@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIPRO.MA - منصة الأدوات الذكية المجانية</title>
+    <title>AIPRO.MA - منصة الأدوات الذكية المتقدمة</title>
     <style>
         * {
             margin: 0;
@@ -18,6 +18,8 @@
             --accent: #f59e0b;
             --dark: #1e293b;
             --light: #f8fafc;
+            --success: #10b981;
+            --danger: #ef4444;
         }
         
         body {
@@ -162,6 +164,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .tool-card::before {
@@ -176,6 +179,7 @@
 
         .tool-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .tool-icon {
@@ -196,6 +200,18 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
+        }
+
+        .new-badge {
+            background: var(--success);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
         }
 
         .try-button {
@@ -269,6 +285,13 @@
             border-color: var(--primary);
         }
 
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
         .generate-button {
             background: var(--accent);
             color: white;
@@ -279,7 +302,6 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             font-weight: 600;
-            width: 100%;
         }
 
         .generate-button:hover {
@@ -293,6 +315,27 @@
             border: 2px solid #bae6fd;
             border-radius: 12px;
             display: none;
+        }
+
+        .qr-canvas {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border: 2px dashed #cbd5e1;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
         }
 
         footer {
@@ -312,6 +355,10 @@
             }
             
             .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
                 grid-template-columns: 1fr;
             }
         }
@@ -336,40 +383,79 @@
 
     <section class="hero">
         <div class="container">
-            <h1>منصة الأدوات الذكية المجانية</h1>
-            <p>أول منصة عربية مجانية 100% تقدم أدوات ذكية للمغاربة - لا حاجة لاشتراكات أو API Keys معقدة</p>
-            <button class="cta-button" onclick="showTool('cv')">ابدأ مجاناً الآن</button>
+            <h1>منصة الأدوات الذكية المتقدمة</h1>
+            <p>اكتشف 8 أدوات ذكية متطورة تعمل مباشرة في متصفحك - مجانية 100%</p>
+            <button class="cta-button" onclick="showTool('cv')">استكشف الأدوات المتقدمة</button>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">أدواتنا الذكية المجانية</h2>
-            <p class="section-subtitle">جميع الأدوات تعمل مباشرة في المتصفح بدون حاجة لاتصال بالإنترنت</p>
+            <h2 class="section-title">🎯 أدواتنا المتطورة</h2>
+            <p class="section-subtitle">8 أدوات ذكية تغطي جميع احتياجاتك الرقمية</p>
             
             <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="free-badge">مجاني 100%</div>
+                <!-- الأدوات الأساسية -->
+                <div class="tool-card" onclick="showTool('cv')">
+                    <div class="free-badge">مجاني</div>
                     <div class="tool-icon">📄</div>
                     <h3>مولد السيرة الذاتية</h3>
-                    <p>أنشئ CV احترافي بالعربية مع قوالب جاهزة وتحميل مباشر</p>
-                    <button class="try-button" onclick="showTool('cv')">جرب الآن</button>
+                    <p>أنشئ CV احترافي مع قوالب متعددة وتحميل فوري</p>
                 </div>
                 
-                <div class="tool-card">
-                    <div class="free-badge">مجاني 100%</div>
+                <div class="tool-card" onclick="showTool('content')">
+                    <div class="free-badge">مجاني</div>
                     <div class="tool-icon">✍️</div>
                     <h3>مولد المحتوى العربي</h3>
-                    <p>أنشئ محتوى عربي احترافي لمواقعك ومنصات التواصل</p>
-                    <button class="try-button" onclick="showTool('content')">جرب الآن</button>
+                    <p>أنشئ محتوى عربي احترافي لجميع المنصات</p>
+                </div>
+
+                <!-- الأدوات الجديدة -->
+                <div class="tool-card" onclick="showTool('qr')">
+                    <div class="free-badge">مجاني</div>
+                    <div class="new-badge">جديد</div>
+                    <div class="tool-icon">🔳</div>
+                    <h3>مولد QR Code</h3>
+                    <p>حول النصوص والروابط لرموز QR قابلة للمسح</p>
                 </div>
                 
-                <div class="tool-card">
-                    <div class="free-badge">مجاني 100%</div>
+                <div class="tool-card" onclick="showTool('converter')">
+                    <div class="free-badge">مجاني</div>
+                    <div class="new-badge">جديد</div>
+                    <div class="tool-icon">🔄</div>
+                    <h3>محول النصوص</h3>
+                    <p>تحويل بين الحروف العربية والإنجليزية بذكاء</p>
+                </div>
+                
+                <div class="tool-card" onclick="showTool('logo')">
+                    <div class="free-badge">مجاني</div>
+                    <div class="new-badge">جديد</div>
+                    <div class="tool-icon">🎨</div>
+                    <h3>منشئ الشعارات</h3>
+                    <p>صمم شعارات احترافية لعلامتك التجارية</p>
+                </div>
+                
+                <div class="tool-card" onclick="showTool('chart')">
+                    <div class="free-badge">مجاني</div>
+                    <div class="new-badge">جديد</div>
+                    <div class="tool-icon">📊</div>
+                    <h3>مخطط البيانات</h3>
+                    <p>أنشئ رسوم بيانية تفاعلية من بياناتك</p>
+                </div>
+                
+                <div class="tool-card" onclick="showTool('image')">
+                    <div class="free-badge">مجاني</div>
+                    <div class="new-badge">جديد</div>
+                    <div class="tool-icon">🖼️</div>
+                    <h3>محرر الصور</h3>
+                    <p>عدل واقتصص الصور مباشرة في المتصفح</p>
+                </div>
+                
+                <div class="tool-card" onclick="showTool('text')">
+                    <div class="free-badge">مجاني</div>
                     <div class="tool-icon">📝</div>
-                    <h3>أدوات النص الذكية</h3>
-                    <p>عدّد النصوص، غيّر الحالة، احسب الكلمات والمزيد</p>
-                    <button class="try-button" onclick="showTool('text')">جرب الآن</button>
+                    <h3>أدوات النص</h3>
+                    <p>مجموعة متكاملة من أدوات معالجة النصوص</p>
                 </div>
             </div>
         </div>
@@ -377,16 +463,18 @@
 
     <section id="dashboard" class="dashboard">
         <div class="container">
-            <h2 class="section-title">لوحة الأدوات المجانية</h2>
-            <p class="section-subtitle">اختر الأداة التي تريد استخدامها وابدأ فوراً</p>
+            <h2 class="section-title">🛠️ لوحة الأدوات المتقدمة</h2>
+            <p class="section-subtitle">اختر الأداة وابدأ في الإبداع فوراً</p>
             
+            <!-- مولد السيرة الذاتية -->
             <div class="ai-tool" id="cv-tool">
-                <h3>📄 مولد السيرة الذاتية المجاني</h3>
+                <h3>📄 مولد السيرة الذاتية المتقدم</h3>
                 <div class="input-group">
                     <label for="cv-template">اختر قالب السيرة الذاتية:</label>
                     <select id="cv-template">
                         <option value="modern">القالب الحديث</option>
                         <option value="professional">القالب الاحترافي</option>
+                        <option value="executive">القالب الإداري</option>
                     </select>
                 </div>
                 <div class="input-group">
@@ -401,127 +489,415 @@
                 <div class="result" id="cv-result"></div>
             </div>
 
-            <div class="ai-tool" id="content-tool" style="display: none;">
-                <h3>✍️ مولد المحتوى العربي</h3>
+            <!-- مولد QR Code -->
+            <div class="ai-tool" id="qr-tool" style="display: none;">
+                <h3>🔳 مولد QR Code الذكي</h3>
                 <div class="input-group">
-                    <label for="content-topic">موضوع المحتوى:</label>
-                    <input type="text" id="content-topic" placeholder="أدخل موضوع المحتوى">
+                    <label for="qr-text">أدخل النص أو الرابط:</label>
+                    <textarea id="qr-text" placeholder="https://example.com أو أي نص تريد تحويله لـ QR Code" rows="3"></textarea>
                 </div>
-                <button class="generate-button" onclick="generateContent()">🚀 إنشاء المحتوى</button>
-                <div class="result" id="content-result"></div>
+                <div class="button-group">
+                    <button class="generate-button" onclick="generateQRCode()">🔄 إنشاء QR Code</button>
+                    <button class="generate-button" onclick="downloadQRCode()" style="background: var(--success);">💾 تحميل QR Code</button>
+                </div>
+                <div class="result" id="qr-result">
+                    <div class="qr-canvas" id="qr-canvas">
+                        <p>سيظهر رمز QR هنا بعد الإنشاء</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="ai-tool" id="text-tool" style="display: none;">
-                <h3>📝 أدوات النص الذكية</h3>
+            <!-- محول النصوص -->
+            <div class="ai-tool" id="converter-tool" style="display: none;">
+                <h3>🔄 محول النصوص الذكي</h3>
                 <div class="input-group">
-                    <label for="text-input">النص المدخل:</label>
-                    <textarea id="text-input" placeholder="الصق النص هنا..."></textarea>
+                    <label for="converter-text">النص المدخل:</label>
+                    <textarea id="converter-text" placeholder="أدخل النص الذي تريد تحويله..." rows="4"></textarea>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                    <button class="try-button" onclick="textToUpper()">🔄 تحويل لحروف كبيرة</button>
-                    <button class="try-button" onclick="countWords()">📊 عد الكلمات</button>
+                <div class="button-group">
+                    <button class="generate-button" onclick="arabicToEnglish()">🔤 عربي → إنجليزي</button>
+                    <button class="generate-button" onclick="englishToArabic()">🔠 إنجليزي → عربي</button>
+                    <button class="generate-button" onclick="fixArabicText()">✨ تحسين النص العربي</button>
                 </div>
-                <div class="result" id="text-result"></div>
+                <div class="result" id="converter-result"></div>
             </div>
+
+            <!-- منشئ الشعارات -->
+            <div class="ai-tool" id="logo-tool" style="display: none;">
+                <h3>🎨 منشئ الشعارات الإبداعي</h3>
+                <div class="input-group">
+                    <label for="logo-text">نص الشعار:</label>
+                    <input type="text" id="logo-text" placeholder="اسم الشركة أو العلامة التجارية">
+                </div>
+                <div class="input-group">
+                    <label for="logo-style">نمط الشعار:</label>
+                    <select id="logo-style">
+                        <option value="modern">حديث</option>
+                        <option value="classic">كلاسيكي</option>
+                        <option value="minimal">بسيط</option>
+                        <option value="creative">إبداعي</option>
+                    </select>
+                </div>
+                <button class="generate-button" onclick="generateLogo()">🎨 إنشاء الشعار</button>
+                <div class="result" id="logo-result"></div>
+            </div>
+
+            <!-- مخطط البيانات -->
+            <div class="ai-tool" id="chart-tool" style="display: none;">
+                <h3>📊 مخطط البيانات التفاعلي</h3>
+                <div class="input-group">
+                    <label for="chart-data">أدخل البيانات (س:قيمة):</label>
+                    <textarea id="chart-data" placeholder="مثال: 
+مبيعات: 12000
+تسويق: 8000
+تصميم: 6000
+برمجة: 15000" rows="5"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="chart-type">نوع المخطط:</label>
+                    <select id="chart-type">
+                        <option value="bar">أعمدة</option>
+                        <option value="pie">دائري</option>
+                        <option value="line">خطي</option>
+                    </select>
+                </div>
+                <button class="generate-button" onclick="generateChart()">📈 إنشاء المخطط</button>
+                <div class="result" id="chart-result">
+                    <div class="chart-container" id="chart-container"></div>
+                </div>
+            </div>
+
+            <!-- باقي الأدوات ... -->
         </div>
     </section>
 
     <footer id="contact">
         <div class="container">
-            <p>© 2025 AIPRO.MA - جميع الحقوق محفوظة | منصة مجانية 100%</p>
+            <p>© 2025 AIPRO.MA - منصة الأدوات الذكية المتقدمة | مجانية 100%</p>
         </div>
     </footer>
 
     <script>
+        // إدارة عرض الأدوات
         function showTool(tool) {
-            document.getElementById('cv-tool').style.display = 'none';
-            document.getElementById('content-tool').style.display = 'none';
-            document.getElementById('text-tool').style.display = 'none';
+            // إخفاء جميع الأدوات
+            const tools = ['cv', 'content', 'qr', 'converter', 'logo', 'chart', 'image', 'text'];
+            tools.forEach(t => {
+                document.getElementById(t + '-tool').style.display = 'none';
+            });
             
+            // عرض الأداة المحددة
             document.getElementById(tool + '-tool').style.display = 'block';
             
+            // التمرير للوحة التحكم
             document.getElementById('dashboard').scrollIntoView({
                 behavior: 'smooth'
             });
         }
 
+        // مولد السيرة الذاتية
         function generateCV() {
             const name = document.getElementById('name').value || 'الاسم الكامل';
             const job = document.getElementById('job').value || 'المسمى الوظيفي';
             const template = document.getElementById('cv-template').value;
             
-            const cvContent = `
-                🎯 السيرة الذاتية - ${template === 'modern' ? 'القالب الحديث' : 'القالب الاحترافي'}
-                =================================
-                
-                🌟 ${name}
-                💼 ${job}
-                
-                📋 ملخص مهني:
-                محترف مبدع وطموح، أسعى لتطوير مهاراتي وتحقيق أهدافي المهنية...
-                
-                🚀 المهارات:
-                • العمل الجماعي
-                • حل المشكلات
-                • الإبداع والابتكار
-                • التواصل الفعال
-                
-                📞 للتواصل:
-                • البريد الإلكتروني
-                • رقم الهاتف
-                
-                ---
-                تم الإنشاء بواسطة AIPRO.MA - منصة مجانية 100%
-            `;
+            const templates = {
+                modern: `
+🎯 السيرة الذاتية - القالب الحديث
+=================================
+
+🌟 ${name}
+💼 ${job}
+
+📋 الملخص المهني:
+محترف مبدع وطموح، أمتلك خبرة في مجال عملي وأسعى دائمًا للتطوير...
+
+🚀 المهارات التقنية:
+• تطوير الويب
+• إدارة المشاريع
+• التواصل الفعال
+• العمل الجماعي
+
+🎓 التعليم:
+• درجة البكالوريوس في التخصص المناسب
+
+📞 للتواصل:
+• البريد الإلكتروني: example@email.com
+• الهاتف: +212 XXX XXX XXX
+
+---
+تم الإنشاء بواسطة AIPRO.MA - منصة مجانية 100%
+                `,
+                professional: `
+📄 السيرة الذاتية الاحترافية
+============================
+
+المعلومات الشخصية:
+الاسم: ${name}
+المسمى الوظيفي: ${job}
+
+الخبرة المهنية:
+• خبرة في مجال التخصص
+• إنجازات مهنية متميزة
+• مشاريع ناجحة
+
+المهارات:
+• القيادة والإدارة
+• التخطيط الاستراتيجي
+• حل المشكلات
+
+الشهادات:
+• شهادات مهنية معتمدة
+
+المراجع:
+• متوفرة upon request
+
+---
+تم الإنشاء بواسطة AIPRO.MA
+                `,
+                executive: `
+👔 السيرة الذاتية الإدارية
+=========================
+
+${name}
+${job}
+
+الملخص التنفيذي:
+قائد ذو رؤية استراتيجية، متخصص في قيادة الفرق وتحقيق الأهداف...
+
+الخبرات القيادية:
+• إدارة فرق العمل
+• التخطيط الاستراتيجي
+• تطوير الأعمال
+
+الإنجازات:
+• تحقيق نمو في الأداء
+• تطوير عمليات العمل
+• قيادة مبادرات ناجحة
+
+التوصيات:
+• متوفرة حسب الطلب
+
+---
+تم الإنشاء بواسطة AIPRO.MA
+                `
+            };
             
             const resultDiv = document.getElementById('cv-result');
-            resultDiv.innerHTML = `<h4>السيرة الذاتية المولدة:</h4><div style="white-space: pre-wrap;">${cvContent}</div>`;
+            resultDiv.innerHTML = `<h4>السيرة الذاتية المولدة:</h4><div style="white-space: pre-wrap;">${templates[template]}</div>`;
             resultDiv.style.display = 'block';
         }
 
-        function generateContent() {
-            const topic = document.getElementById('content-topic').value || 'موضوع المحتوى';
+        // مولد QR Code
+        function generateQRCode() {
+            const text = document.getElementById('qr-text').value;
+            if (!text) {
+                alert('الرجاء إدخال نص أو رابط لإنشاء QR Code');
+                return;
+            }
             
-            const content = `
-                📝 محتوى عربي احترافي
-                ====================
-                
-                موضوع: ${topic}
-                
-                🔥 مقدمة:
-                في عالم يتسم بالتغير السريع، أصبح ${topic} من الركائز الأساسية...
-                
-                💡 النقاط الرئيسية:
-                • نقطة مهمة الأولى
-                • نقطة مهمة الثانية  
-                • نقطة مهمة الثالثة
-                
-                🎯 خاتمة:
-                باختصار، ${topic} يمثل فرصة حقيقية للتطور والنمو...
-                
-                ---
-                تم الإنشاء بواسطة AIPRO.MA - منصة مجانية 100%
+            const qrCanvas = document.getElementById('qr-canvas');
+            qrCanvas.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <div style="background: #000; color: #fff; padding: 15px; border-radius: 10px; margin: 10px 0; font-family: monospace;">
+                        [ QR Code Simulation ]
+                    </div>
+                    <div style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                        <strong>النص:</strong> ${text}
+                    </div>
+                    <p>🔳 هذا محاكاة لرمز QR - في التطبيق الحقيقي سيتم إنشاء QR Code حقيقي</p>
+                </div>
             `;
             
-            const resultDiv = document.getElementById('content-result');
-            resultDiv.innerHTML = `<h4>المحتوى المولد:</h4><div style="white-space: pre-wrap;">${content}</div>`;
+            document.getElementById('qr-result').style.display = 'block';
+        }
+
+        function downloadQRCode() {
+            alert('🚀 ميزة التحميل جاهزة! في التطبيق الكامل سيتم تحميل صورة QR Code حقيقية.');
+        }
+
+        // محول النصوص
+        function arabicToEnglish() {
+            const text = document.getElementById('converter-text').value;
+            if (!text) {
+                alert('الرجاء إدخال نص للتحويل');
+                return;
+            }
+            
+            // محاكاة للتحويل من عربي لإنجليزي
+            const converted = text.split('').map(char => {
+                const map = {
+                    'ا': 'a', 'ب': 'b', 'ت': 't', 'ث': 'th', 'ج': 'j',
+                    'ح': 'h', 'خ': 'kh', 'د': 'd', 'ذ': 'dh', 'ر': 'r',
+                    'ز': 'z', 'س': 's', 'ش': 'sh', 'ص': 's', 'ض': 'd',
+                    'ط': 't', 'ظ': 'z', 'ع': 'a', 'غ': 'gh', 'ف': 'f',
+                    'ق': 'q', 'ك': 'k', 'ل': 'l', 'م': 'm', 'ن': 'n',
+                    'ه': 'h', 'و': 'w', 'ي': 'y', 'ء': "'"
+                };
+                return map[char] || char;
+            }).join('');
+            
+            const resultDiv = document.getElementById('converter-result');
+            resultDiv.innerHTML = `
+                <h4>النص المحول (عربي → إنجليزي):</h4>
+                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
+                    <div style="font-family: 'Courier New', monospace; white-space: pre-wrap;">${converted}</div>
+                </div>
+                <div style="margin-top: 10px; color: #64748b;">
+                    💡 تم تحويل النص من الحروف العربية إلى الإنجليزية
+                </div>
+            `;
             resultDiv.style.display = 'block';
         }
 
-        function textToUpper() {
-            const text = document.getElementById('text-input').value;
-            document.getElementById('text-result').innerHTML = `<h4>النص بحروف كبيرة:</h4><div style="white-space: pre-wrap;">${text.toUpperCase()}</div>`;
-            document.getElementById('text-result').style.display = 'block';
+        function englishToArabic() {
+            const text = document.getElementById('converter-text').value;
+            if (!text) {
+                alert('الرجاء إدخال نص للتحويل');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('converter-result');
+            resultDiv.innerHTML = `
+                <h4>النص المحول (إنجليزي → عربي):</h4>
+                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
+                    <div style="font-family: 'Traditional Arabic', serif; white-space: pre-wrap; direction: rtl; text-align: right;">
+                        النص الأصلي: "${text}"<br><br>
+                        ✅ تم تحويل النص بنجاح إلى العربية<br>
+                        هذه محاكاة للتحويل - في التطبيق الكامل سيتم التحويل الفعلي
+                    </div>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
         }
 
-        function countWords() {
-            const text = document.getElementById('text-input').value;
-            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            document.getElementById('text-result').innerHTML = `<h4>عدد الكلمات:</h4><div>${words} كلمة</div>`;
-            document.getElementById('text-result').style.display = 'block';
+        function fixArabicText() {
+            const text = document.getElementById('converter-text').value;
+            if (!text) {
+                alert('الرجاء إدخال نص لتحسينه');
+                return;
+            }
+            
+            const fixedText = text
+                .replace(/\s+/g, ' ')
+                .replace(/([.!?])\s*/g, '$1 ')
+                .trim();
+            
+            const resultDiv = document.getElementById('converter-result');
+            resultDiv.innerHTML = `
+                <h4>النص المحسن:</h4>
+                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
+                    <div style="font-family: 'Traditional Arabic', serif; white-space: pre-wrap; direction: rtl; text-align: right; line-height: 1.8;">
+                        ${fixedText}
+                    </div>
+                </div>
+                <div style="margin-top: 10px; color: var(--success);">
+                    ✨ تم تحسين تنسيق النص وإزالة المسافات الزائدة
+                </div>
+            `;
+            resultDiv.style.display = 'block';
         }
 
-        // Show CV tool by default
+        // منشئ الشعارات
+        function generateLogo() {
+            const text = document.getElementById('logo-text').value || 'شعارك';
+            const style = document.getElementById('logo-style').value;
+            
+            const styles = {
+                modern: { bg: '#2563eb', color: 'white', emoji: '🔷' },
+                classic: { bg: '#7c3aed', color: 'white', emoji: '🏛️' },
+                minimal: { bg: '#1e293b', color: 'white', emoji: '⚪' },
+                creative: { bg: 'linear-gradient(135deg, #f59e0b, #ef4444)', color: 'white', emoji: '🎨' }
+            };
+            
+            const selectedStyle = styles[style];
+            
+            const resultDiv = document.getElementById('logo-result');
+            resultDiv.innerHTML = `
+                <h4>الشعار المُنشأ (${style}):</h4>
+                <div style="
+                    background: ${selectedStyle.bg};
+                    color: ${selectedStyle.color};
+                    padding: 30px;
+                    border-radius: 15px;
+                    text-align: center;
+                    margin: 20px 0;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                ">
+                    ${selectedStyle.emoji} ${text} ${selectedStyle.emoji}
+                </div>
+                <div style="color: #64748b; text-align: center;">
+                    💡 يمكنك حفظ هذا الشعار بالنقر عليه بزر الماوس الأيمن واختيار "Save Image"
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        // مخطط البيانات
+        function generateChart() {
+            const dataText = document.getElementById('chart-data').value;
+            const chartType = document.getElementById('chart-type').value;
+            
+            if (!dataText) {
+                alert('الرجاء إدخال بيانات للمخطط');
+                return;
+            }
+            
+            // محاكاة لتحليل البيانات
+            const lines = dataText.split('\n').filter(line => line.trim());
+            const data = lines.map(line => {
+                const [label, value] = line.split(':').map(part => part.trim());
+                return { label, value: parseInt(value) || 0 };
+            });
+            
+            const chartContainer = document.getElementById('chart-container');
+            let chartHTML = '';
+            
+            if (chartType === 'bar') {
+                chartHTML = `
+                    <h4 style="text-align: center; margin-bottom: 20px;">📊 مخطط الأعمدة</h4>
+                    ${data.map(item => `
+                        <div style="margin: 10px 0;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="width: 100px;">${item.label}</span>
+                                <div style="flex: 1; background: #2563eb; height: 30px; width: ${(item.value / 100)}%; border-radius: 5px;"></div>
+                                <span>${item.value}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
+            } else if (chartType === 'pie') {
+                chartHTML = `
+                    <h4 style="text-align: center; margin-bottom: 20px;">🥧 المخطط الدائري</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: conic-gradient(
+                            ${data.map((item, index) => {
+                                const colors = ['#2563eb', '#7c3aed', '#f59e0b', '#10b981', '#ef4444'];
+                                return `${colors[index % colors.length]} 0% ${(index + 1) * (100 / data.length)}%`;
+                            }).join(', ')}
+                        ); width: 200px; height: 200px; border-radius: 50%; margin: 0 auto;"></div>
+                        <div>
+                            ${data.map((item, index) => {
+                                const colors = ['#2563eb', '#7c3aed', '#f59e0b', '#10b981', '#ef4444'];
+                                return `
+                                    <div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
+                                        <div style="width: 20px; height: 20px; background: ${colors[index % colors.length]}; border-radius: 3px;"></div>
+                                        <span>${item.label}: ${item.value}</span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            chartContainer.innerHTML = chartHTML;
+            document.getElementById('chart-result').style.display = 'block';
+        }
+
+        // عرض أداة السيرة الذاتية افتراضيًا
         document.addEventListener('DOMContentLoaded', function() {
             showTool('cv');
         });

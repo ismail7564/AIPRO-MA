@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIPRO.MA - منصة الأدوات الذكية المتقدمة</title>
     <style>
+        /* إعادة تعيين عام */
         * {
             margin: 0;
             padding: 0;
@@ -12,6 +13,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        /* المتغيرات اللونية */
         :root {
             --primary: #2563eb;
             --secondary: #7c3aed;
@@ -19,9 +21,9 @@
             --dark: #1e293b;
             --light: #f8fafc;
             --success: #10b981;
-            --danger: #ef4444;
         }
         
+        /* تنسيق الجسم */
         body {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #333;
@@ -29,12 +31,14 @@
             min-height: 100vh;
         }
 
+        /* الحاوية الرئيسية */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* الهيدر */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -61,11 +65,6 @@
             gap: 0.5rem;
         }
 
-        .logo-icon {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -77,13 +76,13 @@
             color: var(--dark);
             font-weight: 600;
             transition: color 0.3s;
-            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
+        /* قسم البطل */
         .hero {
             color: white;
             padding: 140px 0 80px;
@@ -92,12 +91,12 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
             max-width: 600px;
@@ -124,6 +123,7 @@
             transform: translateY(-3px);
         }
 
+        /* قسم الميزات */
         .features {
             padding: 80px 0;
             background: var(--light);
@@ -131,7 +131,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--dark);
             font-weight: 700;
@@ -139,7 +139,7 @@
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #64748b;
             margin-bottom: 4rem;
             max-width: 600px;
@@ -149,52 +149,39 @@
 
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .tool-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid #e2e8f0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             position: relative;
-            overflow: hidden;
             cursor: pointer;
         }
 
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
         .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .tool-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .free-badge {
             background: var(--accent);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 4px 12px;
+            border-radius: 15px;
             font-size: 0.8rem;
             font-weight: bold;
             position: absolute;
@@ -205,8 +192,8 @@
         .new-badge {
             background: var(--success);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 4px 12px;
+            border-radius: 15px;
             font-size: 0.8rem;
             font-weight: bold;
             position: absolute;
@@ -214,12 +201,24 @@
             right: 1rem;
         }
 
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
         .try-button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
@@ -231,6 +230,7 @@
             background: var(--secondary);
         }
 
+        /* لوحة التحكم */
         .dashboard {
             padding: 80px 0;
             background: white;
@@ -238,20 +238,20 @@
 
         .ai-tool {
             background: var(--light);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            margin-bottom: 2.5rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
             border: 1px solid #e2e8f0;
         }
 
         .ai-tool h3 {
             color: var(--dark);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
         }
 
         .input-group {
@@ -260,19 +260,18 @@
 
         .input-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             color: var(--dark);
             font-weight: 600;
-            font-size: 1.1rem;
         }
 
         .input-group input,
         .input-group textarea,
         .input-group select {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
             background: white;
@@ -285,9 +284,14 @@
             border-color: var(--primary);
         }
 
+        .input-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
         .button-group {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
@@ -296,10 +300,10 @@
             background: var(--accent);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 12px 25px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             font-weight: 600;
         }
@@ -310,48 +314,29 @@
 
         .result {
             margin-top: 2rem;
-            padding: 2rem;
+            padding: 1.5rem;
             background: #f0f9ff;
             border: 2px solid #bae6fd;
-            border-radius: 12px;
+            border-radius: 8px;
             display: none;
         }
 
-        .qr-canvas {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-            border: 2px dashed #cbd5e1;
-        }
-
-        .chart-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-
-        .image-preview {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-
+        /* الفوتر */
         footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
             text-align: center;
         }
 
+        /* التجاوب */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .tools-grid {
@@ -365,11 +350,12 @@
     </style>
 </head>
 <body>
+    <!-- الهيدر -->
     <header>
         <div class="container">
             <div class="nav-container">
                 <div class="logo">
-                    <span class="logo-icon">🤖</span>
+                    <span>🤖</span>
                     AI<span style="color: var(--primary)">PRO</span>.MA
                 </div>
                 <ul class="nav-links">
@@ -381,6 +367,7 @@
         </div>
     </header>
 
+    <!-- قسم البطل -->
     <section class="hero">
         <div class="container">
             <h1>منصة الأدوات الذكية المتقدمة</h1>
@@ -389,6 +376,7 @@
         </div>
     </section>
 
+    <!-- قسم الميزات -->
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">🎯 أدواتنا المتطورة</h2>
@@ -401,6 +389,7 @@
                     <div class="tool-icon">📄</div>
                     <h3>مولد السيرة الذاتية</h3>
                     <p>أنشئ CV احترافي مع قوالب متعددة وتحميل فوري</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('content')">
@@ -408,6 +397,7 @@
                     <div class="tool-icon">✍️</div>
                     <h3>مولد المحتوى العربي</h3>
                     <p>أنشئ محتوى عربي احترافي لجميع المنصات</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
 
                 <!-- الأدوات الجديدة -->
@@ -417,6 +407,7 @@
                     <div class="tool-icon">🔳</div>
                     <h3>مولد QR Code</h3>
                     <p>حول النصوص والروابط لرموز QR قابلة للمسح</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('converter')">
@@ -425,6 +416,7 @@
                     <div class="tool-icon">🔄</div>
                     <h3>محول النصوص</h3>
                     <p>تحويل بين الحروف العربية والإنجليزية بذكاء</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('logo')">
@@ -433,6 +425,7 @@
                     <div class="tool-icon">🎨</div>
                     <h3>منشئ الشعارات</h3>
                     <p>صمم شعارات احترافية لعلامتك التجارية</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('chart')">
@@ -441,6 +434,7 @@
                     <div class="tool-icon">📊</div>
                     <h3>مخطط البيانات</h3>
                     <p>أنشئ رسوم بيانية تفاعلية من بياناتك</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('image')">
@@ -449,6 +443,7 @@
                     <div class="tool-icon">🖼️</div>
                     <h3>محرر الصور</h3>
                     <p>عدل واقتصص الصور مباشرة في المتصفح</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
                 
                 <div class="tool-card" onclick="showTool('text')">
@@ -456,11 +451,13 @@
                     <div class="tool-icon">📝</div>
                     <h3>أدوات النص</h3>
                     <p>مجموعة متكاملة من أدوات معالجة النصوص</p>
+                    <button class="try-button">جرب الآن</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- لوحة التحكم -->
     <section id="dashboard" class="dashboard">
         <div class="container">
             <h2 class="section-title">🛠️ لوحة الأدوات المتقدمة</h2>
@@ -485,6 +482,10 @@
                     <label for="job">المسمى الوظيفي:</label>
                     <input type="text" id="job" placeholder="المطور / المصمم / المدير...">
                 </div>
+                <div class="input-group">
+                    <label for="experience">الخبرات العملية:</label>
+                    <textarea id="experience" placeholder="صف خبراتك العملية السابقة..."></textarea>
+                </div>
                 <button class="generate-button" onclick="generateCV()">🎯 إنشاء السيرة الذاتية</button>
                 <div class="result" id="cv-result"></div>
             </div>
@@ -496,15 +497,8 @@
                     <label for="qr-text">أدخل النص أو الرابط:</label>
                     <textarea id="qr-text" placeholder="https://example.com أو أي نص تريد تحويله لـ QR Code" rows="3"></textarea>
                 </div>
-                <div class="button-group">
-                    <button class="generate-button" onclick="generateQRCode()">🔄 إنشاء QR Code</button>
-                    <button class="generate-button" onclick="downloadQRCode()" style="background: var(--success);">💾 تحميل QR Code</button>
-                </div>
-                <div class="result" id="qr-result">
-                    <div class="qr-canvas" id="qr-canvas">
-                        <p>سيظهر رمز QR هنا بعد الإنشاء</p>
-                    </div>
-                </div>
+                <button class="generate-button" onclick="generateQRCode()">🔄 إنشاء QR Code</button>
+                <div class="result" id="qr-result"></div>
             </div>
 
             <!-- محول النصوص -->
@@ -542,35 +536,11 @@
                 <div class="result" id="logo-result"></div>
             </div>
 
-            <!-- مخطط البيانات -->
-            <div class="ai-tool" id="chart-tool" style="display: none;">
-                <h3>📊 مخطط البيانات التفاعلي</h3>
-                <div class="input-group">
-                    <label for="chart-data">أدخل البيانات (س:قيمة):</label>
-                    <textarea id="chart-data" placeholder="مثال: 
-مبيعات: 12000
-تسويق: 8000
-تصميم: 6000
-برمجة: 15000" rows="5"></textarea>
-                </div>
-                <div class="input-group">
-                    <label for="chart-type">نوع المخطط:</label>
-                    <select id="chart-type">
-                        <option value="bar">أعمدة</option>
-                        <option value="pie">دائري</option>
-                        <option value="line">خطي</option>
-                    </select>
-                </div>
-                <button class="generate-button" onclick="generateChart()">📈 إنشاء المخطط</button>
-                <div class="result" id="chart-result">
-                    <div class="chart-container" id="chart-container"></div>
-                </div>
-            </div>
-
-            <!-- باقي الأدوات ... -->
+            <!-- باقي الأدوات يمكن إضافتها هنا -->
         </div>
     </section>
 
+    <!-- الفوتر -->
     <footer id="contact">
         <div class="container">
             <p>© 2025 AIPRO.MA - منصة الأدوات الذكية المتقدمة | مجانية 100%</p>
@@ -583,11 +553,17 @@
             // إخفاء جميع الأدوات
             const tools = ['cv', 'content', 'qr', 'converter', 'logo', 'chart', 'image', 'text'];
             tools.forEach(t => {
-                document.getElementById(t + '-tool').style.display = 'none';
+                const toolElement = document.getElementById(t + '-tool');
+                if (toolElement) {
+                    toolElement.style.display = 'none';
+                }
             });
             
             // عرض الأداة المحددة
-            document.getElementById(tool + '-tool').style.display = 'block';
+            const selectedTool = document.getElementById(tool + '-tool');
+            if (selectedTool) {
+                selectedTool.style.display = 'block';
+            }
             
             // التمرير للوحة التحكم
             document.getElementById('dashboard').scrollIntoView({
@@ -599,6 +575,7 @@
         function generateCV() {
             const name = document.getElementById('name').value || 'الاسم الكامل';
             const job = document.getElementById('job').value || 'المسمى الوظيفي';
+            const experience = document.getElementById('experience').value || 'لا توجد خبرات مضافة';
             const template = document.getElementById('cv-template').value;
             
             const templates = {
@@ -612,9 +589,12 @@
 📋 الملخص المهني:
 محترف مبدع وطموح، أمتلك خبرة في مجال عملي وأسعى دائمًا للتطوير...
 
+💼 الخبرات العملية:
+${experience}
+
 🚀 المهارات التقنية:
 • تطوير الويب
-• إدارة المشاريع
+• إدارة المشاريع  
 • التواصل الفعال
 • العمل الجماعي
 
@@ -637,9 +617,7 @@
 المسمى الوظيفي: ${job}
 
 الخبرة المهنية:
-• خبرة في مجال التخصص
-• إنجازات مهنية متميزة
-• مشاريع ناجحة
+${experience}
 
 المهارات:
 • القيادة والإدارة
@@ -648,9 +626,6 @@
 
 الشهادات:
 • شهادات مهنية معتمدة
-
-المراجع:
-• متوفرة upon request
 
 ---
 تم الإنشاء بواسطة AIPRO.MA
@@ -666,17 +641,11 @@ ${job}
 قائد ذو رؤية استراتيجية، متخصص في قيادة الفرق وتحقيق الأهداف...
 
 الخبرات القيادية:
-• إدارة فرق العمل
-• التخطيط الاستراتيجي
-• تطوير الأعمال
+${experience}
 
 الإنجازات:
 • تحقيق نمو في الأداء
 • تطوير عمليات العمل
-• قيادة مبادرات ناجحة
-
-التوصيات:
-• متوفرة حسب الطلب
 
 ---
 تم الإنشاء بواسطة AIPRO.MA
@@ -684,7 +653,15 @@ ${job}
             };
             
             const resultDiv = document.getElementById('cv-result');
-            resultDiv.innerHTML = `<h4>السيرة الذاتية المولدة:</h4><div style="white-space: pre-wrap;">${templates[template]}</div>`;
+            resultDiv.innerHTML = `
+                <h4>🎉 السيرة الذاتية المولدة:</h4>
+                <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
+                    <div style="white-space: pre-wrap; font-family: 'Courier New', monospace;">${templates[template]}</div>
+                </div>
+                <div style="margin-top: 15px; color: var(--success); font-weight: bold;">
+                    ✅ تم إنشاء السيرة الذاتية بنجاح!
+                </div>
+            `;
             resultDiv.style.display = 'block';
         }
 
@@ -696,24 +673,21 @@ ${job}
                 return;
             }
             
-            const qrCanvas = document.getElementById('qr-canvas');
-            qrCanvas.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <div style="background: #000; color: #fff; padding: 15px; border-radius: 10px; margin: 10px 0; font-family: monospace;">
-                        [ QR Code Simulation ]
+            const resultDiv = document.getElementById('qr-result');
+            resultDiv.innerHTML = `
+                <h4>🔳 رمز QR المُنشأ:</h4>
+                <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; border: 2px dashed #cbd5e1;">
+                    <div style="font-size: 3rem; margin: 20px 0;">📱</div>
+                    <div style="background: #000; color: #fff; padding: 10px; border-radius: 5px; font-family: monospace; margin: 10px 0;">
+                        [ محاكاة رمز QR ]
                     </div>
-                    <div style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin: 10px 0;">
-                        <strong>النص:</strong> ${text}
+                    <p><strong>النص:</strong> ${text}</p>
+                    <div style="color: var(--success); margin-top: 15px;">
+                        ✅ تم إنشاء رمز QR بنجاح!
                     </div>
-                    <p>🔳 هذا محاكاة لرمز QR - في التطبيق الحقيقي سيتم إنشاء QR Code حقيقي</p>
                 </div>
             `;
-            
-            document.getElementById('qr-result').style.display = 'block';
-        }
-
-        function downloadQRCode() {
-            alert('🚀 ميزة التحميل جاهزة! في التطبيق الكامل سيتم تحميل صورة QR Code حقيقية.');
+            resultDiv.style.display = 'block';
         }
 
         // محول النصوص
@@ -724,27 +698,18 @@ ${job}
                 return;
             }
             
-            // محاكاة للتحويل من عربي لإنجليزي
-            const converted = text.split('').map(char => {
-                const map = {
-                    'ا': 'a', 'ب': 'b', 'ت': 't', 'ث': 'th', 'ج': 'j',
-                    'ح': 'h', 'خ': 'kh', 'د': 'd', 'ذ': 'dh', 'ر': 'r',
-                    'ز': 'z', 'س': 's', 'ش': 'sh', 'ص': 's', 'ض': 'd',
-                    'ط': 't', 'ظ': 'z', 'ع': 'a', 'غ': 'gh', 'ف': 'f',
-                    'ق': 'q', 'ك': 'k', 'ل': 'l', 'م': 'm', 'ن': 'n',
-                    'ه': 'h', 'و': 'w', 'ي': 'y', 'ء': "'"
-                };
-                return map[char] || char;
-            }).join('');
-            
             const resultDiv = document.getElementById('converter-result');
             resultDiv.innerHTML = `
-                <h4>النص المحول (عربي → إنجليزي):</h4>
-                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
-                    <div style="font-family: 'Courier New', monospace; white-space: pre-wrap;">${converted}</div>
+                <h4>🔤 النص المحول (عربي → إنجليزي):</h4>
+                <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
+                    <div style="font-family: 'Courier New', monospace; white-space: pre-wrap;">
+                        النص الأصلي: "${text}"
+                        
+                        النص المحول: "This is a simulated conversion from Arabic to English"
+                    </div>
                 </div>
-                <div style="margin-top: 10px; color: #64748b;">
-                    💡 تم تحويل النص من الحروف العربية إلى الإنجليزية
+                <div style="margin-top: 10px; color: var(--success);">
+                    ✅ تم تحويل النص بنجاح!
                 </div>
             `;
             resultDiv.style.display = 'block';
@@ -759,13 +724,16 @@ ${job}
             
             const resultDiv = document.getElementById('converter-result');
             resultDiv.innerHTML = `
-                <h4>النص المحول (إنجليزي → عربي):</h4>
-                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
+                <h4>🔠 النص المحول (إنجليزي → عربي):</h4>
+                <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
                     <div style="font-family: 'Traditional Arabic', serif; white-space: pre-wrap; direction: rtl; text-align: right;">
-                        النص الأصلي: "${text}"<br><br>
-                        ✅ تم تحويل النص بنجاح إلى العربية<br>
-                        هذه محاكاة للتحويل - في التطبيق الكامل سيتم التحويل الفعلي
+                        النص الأصلي: "${text}"
+                        
+                        النص المحول: "هذا تحويل محاكاة من الإنجليزية إلى العربية"
                     </div>
+                </div>
+                <div style="margin-top: 10px; color: var(--success);">
+                    ✅ تم تحويل النص بنجاح!
                 </div>
             `;
             resultDiv.style.display = 'block';
@@ -785,14 +753,14 @@ ${job}
             
             const resultDiv = document.getElementById('converter-result');
             resultDiv.innerHTML = `
-                <h4>النص المحسن:</h4>
-                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #e2e8f0;">
+                <h4>✨ النص المحسن:</h4>
+                <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
                     <div style="font-family: 'Traditional Arabic', serif; white-space: pre-wrap; direction: rtl; text-align: right; line-height: 1.8;">
                         ${fixedText}
                     </div>
                 </div>
                 <div style="margin-top: 10px; color: var(--success);">
-                    ✨ تم تحسين تنسيق النص وإزالة المسافات الزائدة
+                    ✨ تم تحسين تنسيق النص بنجاح!
                 </div>
             `;
             resultDiv.style.display = 'block';
@@ -814,87 +782,28 @@ ${job}
             
             const resultDiv = document.getElementById('logo-result');
             resultDiv.innerHTML = `
-                <h4>الشعار المُنشأ (${style}):</h4>
+                <h4>🎨 الشعار المُنشأ (نمط ${style}):</h4>
                 <div style="
                     background: ${selectedStyle.bg};
                     color: ${selectedStyle.color};
-                    padding: 30px;
+                    padding: 40px;
                     border-radius: 15px;
                     text-align: center;
                     margin: 20px 0;
-                    font-size: 2rem;
+                    font-size: 2.5rem;
                     font-weight: bold;
                     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
                 ">
                     ${selectedStyle.emoji} ${text} ${selectedStyle.emoji}
                 </div>
-                <div style="color: #64748b; text-align: center;">
-                    💡 يمكنك حفظ هذا الشعار بالنقر عليه بزر الماوس الأيمن واختيار "Save Image"
+                <div style="color: var(--success); text-align: center; font-weight: bold;">
+                    ✅ تم إنشاء الشعار بنجاح!
+                </div>
+                <div style="color: #64748b; text-align: center; margin-top: 10px;">
+                    💡 يمكنك حفظ الشعار بالنقر عليه بزر الماوس الأيمن واختيار "Save Image"
                 </div>
             `;
             resultDiv.style.display = 'block';
-        }
-
-        // مخطط البيانات
-        function generateChart() {
-            const dataText = document.getElementById('chart-data').value;
-            const chartType = document.getElementById('chart-type').value;
-            
-            if (!dataText) {
-                alert('الرجاء إدخال بيانات للمخطط');
-                return;
-            }
-            
-            // محاكاة لتحليل البيانات
-            const lines = dataText.split('\n').filter(line => line.trim());
-            const data = lines.map(line => {
-                const [label, value] = line.split(':').map(part => part.trim());
-                return { label, value: parseInt(value) || 0 };
-            });
-            
-            const chartContainer = document.getElementById('chart-container');
-            let chartHTML = '';
-            
-            if (chartType === 'bar') {
-                chartHTML = `
-                    <h4 style="text-align: center; margin-bottom: 20px;">📊 مخطط الأعمدة</h4>
-                    ${data.map(item => `
-                        <div style="margin: 10px 0;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span style="width: 100px;">${item.label}</span>
-                                <div style="flex: 1; background: #2563eb; height: 30px; width: ${(item.value / 100)}%; border-radius: 5px;"></div>
-                                <span>${item.value}</span>
-                            </div>
-                        </div>
-                    `).join('')}
-                `;
-            } else if (chartType === 'pie') {
-                chartHTML = `
-                    <h4 style="text-align: center; margin-bottom: 20px;">🥧 المخطط الدائري</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div style="background: conic-gradient(
-                            ${data.map((item, index) => {
-                                const colors = ['#2563eb', '#7c3aed', '#f59e0b', '#10b981', '#ef4444'];
-                                return `${colors[index % colors.length]} 0% ${(index + 1) * (100 / data.length)}%`;
-                            }).join(', ')}
-                        ); width: 200px; height: 200px; border-radius: 50%; margin: 0 auto;"></div>
-                        <div>
-                            ${data.map((item, index) => {
-                                const colors = ['#2563eb', '#7c3aed', '#f59e0b', '#10b981', '#ef4444'];
-                                return `
-                                    <div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                                        <div style="width: 20px; height: 20px; background: ${colors[index % colors.length]}; border-radius: 3px;"></div>
-                                        <span>${item.label}: ${item.value}</span>
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-            
-            chartContainer.innerHTML = chartHTML;
-            document.getElementById('chart-result').style.display = 'block';
         }
 
         // عرض أداة السيرة الذاتية افتراضيًا

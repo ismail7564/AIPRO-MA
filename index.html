@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPRO.MA - منصة الأدوات الذكية المجانية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            color: white;
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+
+        .features {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tool-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .free-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .try-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        .try-button:hover {
+            background: var(--secondary);
+        }
+
+        .dashboard {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .ai-tool {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 2.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .ai-tool h3 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .generate-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        .generate-button:hover {
+            background: #e67e22;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f0f9ff;
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            display: none;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    AI<span style="color: var(--primary)">PRO</span>.MA
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">الأدوات</a></li>
+                    <li><a href="#dashboard">لوحة التحكم</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>منصة الأدوات الذكية المجانية</h1>
+            <p>أول منصة عربية مجانية 100% تقدم أدوات ذكية للمغاربة - لا حاجة لاشتراكات أو API Keys معقدة</p>
+            <button class="cta-button" onclick="showTool('cv')">ابدأ مجاناً الآن</button>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">أدواتنا الذكية المجانية</h2>
+            <p class="section-subtitle">جميع الأدوات تعمل مباشرة في المتصفح بدون حاجة لاتصال بالإنترنت</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="free-badge">مجاني 100%</div>
+                    <div class="tool-icon">📄</div>
+                    <h3>مولد السيرة الذاتية</h3>
+                    <p>أنشئ CV احترافي بالعربية مع قوالب جاهزة وتحميل مباشر</p>
+                    <button class="try-button" onclick="showTool('cv')">جرب الآن</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="free-badge">مجاني 100%</div>
+                    <div class="tool-icon">✍️</div>
+                    <h3>مولد المحتوى العربي</h3>
+                    <p>أنشئ محتوى عربي احترافي لمواقعك ومنصات التواصل</p>
+                    <button class="try-button" onclick="showTool('content')">جرب الآن</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="free-badge">مجاني 100%</div>
+                    <div class="tool-icon">📝</div>
+                    <h3>أدوات النص الذكية</h3>
+                    <p>عدّد النصوص، غيّر الحالة، احسب الكلمات والمزيد</p>
+                    <button class="try-button" onclick="showTool('text')">جرب الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2 class="section-title">لوحة الأدوات المجانية</h2>
+            <p class="section-subtitle">اختر الأداة التي تريد استخدامها وابدأ فوراً</p>
+            
+            <div class="ai-tool" id="cv-tool">
+                <h3>📄 مولد السيرة الذاتية المجاني</h3>
+                <div class="input-group">
+                    <label for="cv-template">اختر قالب السيرة الذاتية:</label>
+                    <select id="cv-template">
+                        <option value="modern">القالب الحديث</option>
+                        <option value="professional">القالب الاحترافي</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="name">الاسم الكامل:</label>
+                    <input type="text" id="name" placeholder="أدخل اسمك الكامل">
+                </div>
+                <div class="input-group">
+                    <label for="job">المسمى الوظيفي:</label>
+                    <input type="text" id="job" placeholder="المطور / المصمم / المدير...">
+                </div>
+                <button class="generate-button" onclick="generateCV()">🎯 إنشاء السيرة الذاتية</button>
+                <div class="result" id="cv-result"></div>
+            </div>
+
+            <div class="ai-tool" id="content-tool" style="display: none;">
+                <h3>✍️ مولد المحتوى العربي</h3>
+                <div class="input-group">
+                    <label for="content-topic">موضوع المحتوى:</label>
+                    <input type="text" id="content-topic" placeholder="أدخل موضوع المحتوى">
+                </div>
+                <button class="generate-button" onclick="generateContent()">🚀 إنشاء المحتوى</button>
+                <div class="result" id="content-result"></div>
+            </div>
+
+            <div class="ai-tool" id="text-tool" style="display: none;">
+                <h3>📝 أدوات النص الذكية</h3>
+                <div class="input-group">
+                    <label for="text-input">النص المدخل:</label>
+                    <textarea id="text-input" placeholder="الصق النص هنا..."></textarea>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <button class="try-button" onclick="textToUpper()">🔄 تحويل لحروف كبيرة</button>
+                    <button class="try-button" onclick="countWords()">📊 عد الكلمات</button>
+                </div>
+                <div class="result" id="text-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>© 2025 AIPRO.MA - جميع الحقوق محفوظة | منصة مجانية 100%</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTool(tool) {
+            document.getElementById('cv-tool').style.display = 'none';
+            document.getElementById('content-tool').style.display = 'none';
+            document.getElementById('text-tool').style.display = 'none';
+            
+            document.getElementById(tool + '-tool').style.display = 'block';
+            
+            document.getElementById('dashboard').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function generateCV() {
+            const name = document.getElementById('name').value || 'الاسم الكامل';
+            const job = document.getElementById('job').value || 'المسمى الوظيفي';
+            const template = document.getElementById('cv-template').value;
+            
+            const cvContent = `
+                🎯 السيرة الذاتية - ${template === 'modern' ? 'القالب الحديث' : 'القالب الاحترافي'}
+                =================================
+                
+                🌟 ${name}
+                💼 ${job}
+                
+                📋 ملخص مهني:
+                محترف مبدع وطموح، أسعى لتطوير مهاراتي وتحقيق أهدافي المهنية...
+                
+                🚀 المهارات:
+                • العمل الجماعي
+                • حل المشكلات
+                • الإبداع والابتكار
+                • التواصل الفعال
+                
+                📞 للتواصل:
+                • البريد الإلكتروني
+                • رقم الهاتف
+                
+                ---
+                تم الإنشاء بواسطة AIPRO.MA - منصة مجانية 100%
+            `;
+            
+            const resultDiv = document.getElementById('cv-result');
+            resultDiv.innerHTML = `<h4>السيرة الذاتية المولدة:</h4><div style="white-space: pre-wrap;">${cvContent}</div>`;
+            resultDiv.style.display = 'block';
+        }
+
+        function generateContent() {
+            const topic = document.getElementById('content-topic').value || 'موضوع المحتوى';
+            
+            const content = `
+                📝 محتوى عربي احترافي
+                ====================
+                
+                موضوع: ${topic}
+                
+                🔥 مقدمة:
+                في عالم يتسم بالتغير السريع، أصبح ${topic} من الركائز الأساسية...
+                
+                💡 النقاط الرئيسية:
+                • نقطة مهمة الأولى
+                • نقطة مهمة الثانية  
+                • نقطة مهمة الثالثة
+                
+                🎯 خاتمة:
+                باختصار، ${topic} يمثل فرصة حقيقية للتطور والنمو...
+                
+                ---
+                تم الإنشاء بواسطة AIPRO.MA - منصة مجانية 100%
+            `;
+            
+            const resultDiv = document.getElementById('content-result');
+            resultDiv.innerHTML = `<h4>المحتوى المولد:</h4><div style="white-space: pre-wrap;">${content}</div>`;
+            resultDiv.style.display = 'block';
+        }
+
+        function textToUpper() {
+            const text = document.getElementById('text-input').value;
+            document.getElementById('text-result').innerHTML = `<h4>النص بحروف كبيرة:</h4><div style="white-space: pre-wrap;">${text.toUpperCase()}</div>`;
+            document.getElementById('text-result').style.display = 'block';
+        }
+
+        function countWords() {
+            const text = document.getElementById('text-input').value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            document.getElementById('text-result').innerHTML = `<h4>عدد الكلمات:</h4><div>${words} كلمة</div>`;
+            document.getElementById('text-result').style.display = 'block';
+        }
+
+        // Show CV tool by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showTool('cv');
+        });
+    </script>
+</body>
+</html>
